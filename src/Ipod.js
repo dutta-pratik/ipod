@@ -1,3 +1,4 @@
+// importing required files
 import React from'react';
 import './ipod.css'
 import ZingTouch from 'zingtouch';
@@ -16,26 +17,22 @@ class Ipod extends React.Component{
             "display":["Coverflow","Music","Games","Settings"]
         }
     }
-
+    // handiling color of the components
     handleColor =()=>{
-        
         let div = document.getElementById('Coverflow');
         div.style.backgroundColor='white';
         div.style.color="black";
-
         div = document.getElementById('Music');
         div.style.backgroundColor='white';
         div.style.color="black";
-
         div = document.getElementById('Games');
         div.style.backgroundColor='white';
         div.style.color="black";
-
         div = document.getElementById('Settings');
         div.style.backgroundColor='white';
         div.style.color="black";
     }
-
+    // handling the scroll
     handleScroll = () => {
         let angle = 0;
         const target = document.getElementById('menu');
@@ -77,7 +74,7 @@ class Ipod extends React.Component{
         });
 
     }
-    
+    //handling the main screen element
     mainScreen =() =>{
         let current = document.getElementsByClassName('newScreen');
         
@@ -88,7 +85,6 @@ class Ipod extends React.Component{
                 break;
             }
         }
-       
         // console.log(currentScreen);
         
         currentScreen.style.visibility = "hidden";
@@ -107,9 +103,7 @@ class Ipod extends React.Component{
         // console.log("home a4 ---> ", home);
 
     }
-    
-
-
+    //handling switching screen
     switchScreen = (e) =>{
 
         let home = document.getElementById('display');
@@ -152,7 +146,7 @@ class Ipod extends React.Component{
         screen.style.marginLeft="151px";
     }
 
-
+    //handling click
     Click =() =>{
         let elements = document.getElementsByClassName('screen-elements');
        
@@ -164,20 +158,20 @@ class Ipod extends React.Component{
             }
         }
         this.switchScreen(ele);
-        
     }
     
     render(){
         return(
             <div className="Ipod" >
                 <img src={Ipod_img} style={{height:600}, {width:600}} />
+                {/* Rendering Screen Component */}
                 <Screen dispItems={this.state.display}/>
+                {/* Rendering Pads Component */}
                 <Pads scroll={this.handleScroll} mainScr={this.mainScreen} optn={this.Click}/>
             </div>
         );
     }
 }
 
-
-
+//Exporting Ipod
 export default Ipod;

@@ -1,3 +1,4 @@
+// importing required files
 import React from'react';
 import './ipod.css'
 import ZingTouch from 'zingtouch';
@@ -24,5 +25,5 @@ const Screen = (props) => {
         
     );
 }
-
+//Exporting Screen
 export default Screen;
